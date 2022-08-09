@@ -1,0 +1,150 @@
+.hotel {
+  background-color: #F6F3E9;
+  font-family: Helvetica, Arial, sans-serif
+}
+
+.hero {
+  display: flex;
+  width: 100%;
+  height: 60rem;
+}
+
+.hero-left {
+  flex-basis:calc((2 / 5) * 100%)
+}
+
+.hero-right {
+  flex-basis:calc((3 / 5) * 100%);
+  padding-right: 5rem;
+  background-image: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+}
+
+.hotel-nav {
+  padding-left: 5rem;
+  height: 5.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px black solid;
+}
+
+.hotel-nav span {
+  flex: 1;
+}
+
+.hotel-nav ul {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.hotel-nav ul li {
+  padding: .25rem;
+}
+
+.hero-left-text {
+  height: 100%;
+  padding-left: 5rem;
+}
+
+.tagline-container {
+  padding-top: 15rem;
+}
+
+.tagline-container h2 {
+  font-size: 4rem;
+  line-height: 75px;
+}
+
+.hero-left-text p {
+  font-size: 1.25rem;
+  padding-top: 1rem;
+}
+
+.hero-cursive {
+  font-family: 'Inspiration', cursive;
+  font-size: 4rem;
+}
+
+.hero-right button {
+  float: right;
+  margin-top: 2rem;
+  background-color: transparent;
+  border: 1px white solid;
+  color: white;
+  padding: .75rem;
+  cursor: pointer;
+}
+
+.hero-right button:hover {
+  background-color: #F6F3E9;
+  color: black;
+  border: 1px black solid;
+}
+
+.story-text {
+  display: flex;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  align-items: center;
+  height: 100%;
+  height: 8rem;
+}
+
+.story-text-left {
+  flex-basis:calc((2 / 5) * 100%)
+}
+
+.story-text-left h2 {
+  padding: 0 5rem;
+  
+}
+
+.story-text-right {
+  flex-basis:calc((3 / 5) * 100%);
+  padding: 0 5rem;
+}
+
+.story-text-border {
+  border-right: 1px solid black;
+  height: 100%;
+}
+
+.story-img-container {
+  height: 60rem;
+  padding: 5rem;
+}
+
+.story-img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+}
+
+.info {
+  padding: 5rem 28rem;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+.info-text button {
+  margin-top: 2rem;
+  padding: .75rem;
+  background-color: #487355;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
