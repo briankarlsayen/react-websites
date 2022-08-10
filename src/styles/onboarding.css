@@ -1,6 +1,26 @@
+.onboarding {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.spacing {
+  padding-top: 10rem;
+}
+
+.onboarding-container {
+  margin-top: 10rem;
+  width: 500px;
+  height: 600px;
+  margin: auto;
+  border: 1px solid black;
+  padding: 2rem;
+}
+
 .input-container {
   padding: 1rem;
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 

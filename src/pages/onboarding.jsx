@@ -2,7 +2,6 @@ import { useState } from 'react'
 import "../styles/onboarding.css"
 
 function Onboarding() {
-  const [formStep, setFormStep] =useState(1)
   const [userInfo, setUserInfo] = useState(
     {
       step: 1,
@@ -10,38 +9,40 @@ function Onboarding() {
       displayName: '',
       workSpaceName: '',
       workSpaceURL: '',
-      workSpaceType: '',
+      workSpaceType: 'solo',
     }
   )
 
   const updateField = e => {
+    console.log(e)
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value
     });
   };
 
-  let formInfo;
-
   return (
-    <div>
-      <StepContainer formStep={formStep} setFormStep={setFormStep} userInfo={userInfo} setUserInfo={setUserInfo} updateField={updateField} />
-      <div>
-        {formStep > 1 ? <button onClick={()=>setFormStep(formStep - 1)}>Previous</button> : null }
-        { formStep < 4 ? <button onClick={()=>setFormStep(formStep + 1)}>Next</button> : null }
+    <div className="onboarding">
+      <div className='spacing'></div>
+      <div className="onboarding-container">
+        <StepContainer userInfo={userInfo} setUserInfo={setUserInfo} updateField={updateField} />
+        <div>
+          { userInfo.step > 1 ? <button onClick={()=>setUserInfo({...userInfo, step: userInfo.step - 1})}>Previous</button> : null }
+          { userInfo.step < 4 ? <button onClick={()=>setUserInfo({...userInfo, step: userInfo.step + 1})}>Next</button> : null }
+        </div>
       </div>
     </div>
   )
 }
 
-function StepContainer({formStep, setFormStep, userInfo, setUserInfo, updateField}) {
-  switch(formStep) {
+function StepContainer({ userInfo, setUserInfo, updateField}) {
+  switch(userInfo.step) {
     case 1: 
       return <FirstStep userInfo={userInfo} setUserInfo={setUserInfo} updateField={updateField} />
     case 2:
       return <SecondStep userInfo={userInfo} setUserInfo={setUserInfo} updateField={updateField} />
     case 3:
-      return <FinalStep userInfo={userInfo} setUserInfo={setUserInfo} />
+      return <FinalStep userInfo={userInfo} setUserInfo={setUserInfo} updateField={updateField} />
     case 4: 
       return (
         <div>
@@ -94,15 +95,26 @@ const SecondStep = ({userInfo, setUserInfo, updateField}) => {
   )
 }
 
-const FinalStep = ({userInfo, setUserInfo}) => {
+const FinalStep = ({userInfo, setUserInfo, updateField}) => {
   return(
     <>
-      <div>
-        <button onClick={()=>setUserInfo({...userInfo, workSpaceType: "solo"})}>Solo</button>
-      </div>
-      <div>
-        <button onClick={()=>setUserInfo({...userInfo, workSpaceType: "team"})}>Team</button>
-      </div>
+      <h1>Step {userInfo.step}</h1>
+      <form >
+        <div>
+          <label htmlFor="workSpaceType">
+            <input type="radio" name="workSpaceType" id="workSpaceType"
+            value="solo" onChange={updateField} checked={userInfo.workSpaceType === "solo"} />
+            Solo
+          </label>
+        </div>
+        <div>
+          <label htmlFor="workSpaceType">
+            <input type="radio" name="workSpaceType" id="workSpaceType"
+            value="team" onChange={updateField} checked={userInfo.workSpaceType === "team"}/>
+            Team
+          </label>
+        </div>
+      </form>
     </>
   )
 }
