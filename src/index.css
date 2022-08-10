@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
