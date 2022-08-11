@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "../styles/onboarding.css"
 
 function Onboarding() {
   const [userInfo, setUserInfo] = useState(
     {
-      step: 2,
+      step: 1,
       fullName: '',
       displayName: '',
       workSpaceName: '',
@@ -12,6 +12,7 @@ function Onboarding() {
       workSpaceType: 'solo',
     }
   )
+  const [progress, setProgress] = useState(`w-[${userInfo.step * 25}%]`)
 
   const updateField = e => {
     console.log(e)
@@ -21,9 +22,22 @@ function Onboarding() {
     });
   };
 
+  useEffect(() => {
+    setProgress(`w-[${userInfo.step * 25}%]`)
+  }, [userInfo.step])
+
+  const computeProgress = (props) => {
+    console.log('props', props)
+    setProgress(`w-[${props * 25}%]`)
+  }
+  console.log('progress', progress)
+
   return (
     <div className='py-64'>
-      <ButtonCont userInfo={userInfo} setUserInfo={setUserInfo} />
+      <ButtonCont userInfo={userInfo} setUserInfo={setUserInfo} computeProgress={computeProgress} />
+      <div className="w-full max-w-xl bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 align-middle items-center justify-center m-auto text-center">
+        <div className={`${progress} bg-blue-600 h-2.5 rounded-full ease-in duration-500`}></div>
+      </div>
       {/* <div className="text-center mt-24">
         <div className="flex items-center justify-center">
           <svg fill="none" viewBox="0 0 24 24" className="w-12 h-12 text-blue-500" stroke="currentColor">
@@ -48,17 +62,25 @@ function Onboarding() {
   )
 }
 
-const ButtonCont = ({setUserInfo, userInfo}) => {
+const ButtonCont = ({setUserInfo, userInfo, computeProgress}) => {
   return(
     <div className='flex justify-center'>
       <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>setUserInfo({...userInfo, step: 1})}>1</button>
+          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
+            computeProgress(1)
+            setUserInfo({...userInfo, step: 1})}}>1</button>
       <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>setUserInfo({...userInfo, step: 2})}>2</button>
+          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
+            computeProgress(2)
+            setUserInfo({...userInfo, step: 2})}}>2</button>
       <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>setUserInfo({...userInfo, step: 3})}>3</button>
+          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
+            computeProgress(3)
+            setUserInfo({...userInfo, step: 3})}}>3</button>
       <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>setUserInfo({...userInfo, step: 4})}>4</button>
+          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
+            computeProgress(4)
+            setUserInfo({...userInfo, step: 4})}}>4</button>
     </div>
   )
 }
@@ -112,7 +134,7 @@ const FirstStep = ({userInfo, setUserInfo, updateField}) => {
         </form>
         <div className="w-full md:w-full mb-6">
           <button className="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Create Workspace</button>
+          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500" onClick={()=>setUserInfo({...userInfo, step: userInfo.step + 1})}>Create Workspace</button>
         </div>
       </div>
     </div>
@@ -143,7 +165,7 @@ const SecondStep = ({userInfo, setUserInfo, updateField}) => {
         </form>
           <div className="w-full md:w-full mb-6">
             <button className="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 
-            rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Create Workspace</button>
+            rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500" onClick={()=>setUserInfo({...userInfo, step: userInfo.step + 1})}>Create Workspace</button>
           </div>
       </div>
     </div>
@@ -176,7 +198,7 @@ const FinalStep = ({userInfo, setUserInfo, updateField}) => {
         </form>
         <div className="w-full md:w-full mb-6">
           <button className="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Create Workspace</button>
+          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500" onClick={()=>setUserInfo({...userInfo, step: userInfo.step + 1})}>Create Workspace</button>
         </div>
       </div>
     </div>
