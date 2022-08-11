@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
+import Solo from '../assets/solo.svg'
+import Team from '../assets/team.svg'
 import "../styles/onboarding.css"
+
 
 function Onboarding() {
   const [userInfo, setUserInfo] = useState(
@@ -12,7 +15,7 @@ function Onboarding() {
       workSpaceType: 'solo',
     }
   )
-  const [progress, setProgress] = useState(`w-[${userInfo.step * 25}%]`)
+  const [progress, setProgress] = useState('')
 
   const updateField = e => {
     console.log(e)
@@ -23,7 +26,8 @@ function Onboarding() {
   };
 
   useEffect(() => {
-    setProgress(`w-[${userInfo.step * 25}%]`)
+    let percentage = userInfo.step * 25
+    setProgress(`w-[${percentage}px]`)
   }, [userInfo.step])
 
   const computeProgress = (props) => {
@@ -34,10 +38,12 @@ function Onboarding() {
 
   return (
     <div className='py-64'>
-      <ButtonCont userInfo={userInfo} setUserInfo={setUserInfo} computeProgress={computeProgress} />
-      <div className="w-full max-w-xl bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 align-middle items-center justify-center m-auto text-center">
-        <div className={`${progress} bg-blue-600 h-2.5 rounded-full ease-in duration-500`}></div>
-      </div>
+      {/* <ButtonCont userInfo={userInfo} setUserInfo={setUserInfo} computeProgress={computeProgress} /> */}
+      {/* <div className="w-full max-w-xl bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 align-middle items-center justify-center m-auto text-center">
+        {/* <div className={`w-[100px] bg-blue-600 h-2.5 rounded-full ease-in duration-500`}></div> */}
+        {/* <div className={`${progress} bg-blue-600 h-2.5 rounded-full ease-in duration-500`}></div>
+      </div> */}
+      <ProgressBar userInfo={userInfo} setUserInfo={setUserInfo} step={userInfo.step} />
       {/* <div className="text-center mt-24">
         <div className="flex items-center justify-center">
           <svg fill="none" viewBox="0 0 24 24" className="w-12 h-12 text-blue-500" stroke="currentColor">
@@ -62,26 +68,79 @@ function Onboarding() {
   )
 }
 
-const ButtonCont = ({setUserInfo, userInfo, computeProgress}) => {
+const ProgressBar = ({userInfo, setUserInfo, step}) => {
   return(
-    <div className='flex justify-center'>
-      <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
-            computeProgress(1)
-            setUserInfo({...userInfo, step: 1})}}>1</button>
-      <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
-            computeProgress(2)
-            setUserInfo({...userInfo, step: 2})}}>2</button>
-      <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
-            computeProgress(3)
-            setUserInfo({...userInfo, step: 3})}}>3</button>
-      <button className='appearance-none block bg-blue-600 text-gray-100 font-bold border border-gray-200 
-          rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500' onClick={()=>{
-            computeProgress(4)
-            setUserInfo({...userInfo, step: 4})}}>4</button>
+    <div className="max-w-xl mx-auto my-4 border-b-2 pb-4">	
+    <div className="flex pb-3">
+      <div className="flex-1">
+      </div>
+
+      <div className="flex-1">
+        <div className={`${step >= 1 ? `step-circle-active` : "step-circle" }`}>
+          <span onClick={()=>setUserInfo({...userInfo, step: 1})} className="text-white text-center w-full">1</span>
+        </div>
+      </div>
+      <div className="w-1/6 align-center items-center align-middle content-center flex">
+        <div className="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+        <div className={`${step >= 2 ? "step-bar-active" : step>= 1  ? "step-bar" : "" }`}></div>
+        </div>
+      </div>
+    
+      
+      <div className="flex-1">
+        <div className={`${step >= 2 ? `step-circle-active` : "step-circle" }`}>
+          <span onClick={()=>setUserInfo({...userInfo, step: 2})} className="text-white text-center w-full">2</span>
+        </div>
+      </div>
+    
+      <div className="w-1/6 align-center items-center align-middle content-center flex">
+        <div className="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+          <div className={`${step >= 3 ? "step-bar-active" : step>= 2  ? "step-bar" : "" }`}></div>
+        </div>
+      </div>
+    
+      <div className="flex-1">
+        <div className={`${step >= 3 ? `step-circle-active` : "step-circle" }`}>
+          <span onClick={()=>setUserInfo({...userInfo, step: 3})} className="text-grey-darker text-center w-full">3</span>
+        </div>
+      </div>
+    
+      <div className="w-1/6 align-center items-center align-middle content-center flex">
+        <div className="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
+          <div className={`${step >= 4 ? "step-bar-active" : step>= 3  ? "step-bar" : "" }`}></div>
+        </div>
+      </div>
+
+
+      <div className="flex-1">
+        <div className={`${step >= 4 ? `step-circle-active` : "step-circle" }`}>
+          <span onClick={()=>setUserInfo({...userInfo, step: 4})} className="text-grey-darker text-center w-full">4</span>
+        </div>
+      </div>
+    
+    
+      <div className="flex-1">
+      </div>		
     </div>
+    
+    <div className="flex text-xs content-center text-center">
+      <div className="w-1/4">
+        Basic information
+      </div>
+      
+      <div className="w-1/4">
+        Workspace details
+      </div>
+      
+      <div className="w-1/4">
+        Workspace type
+      </div>
+      
+      <div className="w-1/4">
+        Finish
+      </div>			
+    </div>
+  </div>
   )
 }
 
@@ -180,20 +239,39 @@ const FinalStep = ({userInfo, setUserInfo, updateField}) => {
         <p>We'll streamline your setup experience accordingly.</p>
       </div>
       <div className="w-full max-w-xl bg-white rounded-lg">
-        <form className='flex justify-evenly p-6'>
-          <div className='p-6 border'>
-            <label htmlFor="workSpaceType">
-              <input type="radio" name="workSpaceType" id="workSpaceType"
+        
+        <form className='flex justify-evenly py-6'>
+
+          <div className='flex'>
+            {/* <label htmlFor="workSpaceType" >
+              <input type="radio" name="workSpaceType" id="workSpaceType" 
               value="solo" onChange={updateField} checked={userInfo.workSpaceType === "solo"} />
-              Solo
-            </label>
+              <img src={Solo} />
+            </label> */}
+            <button className='p-6 items-center text-left rounded-md border-2 border-gray-300 hover:border-blue-600 hover:border-2' onClick={()=>setUserInfo({...userInfo, step: userInfo.step + 1, workSpaceType: "solo"})}>
+              <img className='w-8 h-8' src={Solo} />
+              <div className='pt-4'>
+                <h3 className='font-semibold py-2'>For myself</h3>
+                <p className='text-xs font-thin leading-4'>Write better. Think more clearly. Stay organized.</p>
+              </div>
+            </button>
           </div>
-          <div className='p-6 border'>
-            <label htmlFor="workSpaceType">
-              <input type="radio" name="workSpaceType" id="workSpaceType"
+          <div className='p-8'></div>
+
+          <div className='flex'>
+            {/* <label htmlFor="workSpaceType" className='items-center'>
+              <input className='items-center' type="radio" name="workSpaceType" id="workSpaceType"
               value="team" onChange={updateField} checked={userInfo.workSpaceType === "team"}/>
-              Team
-            </label>
+              
+              <img src={Team} />
+            </label> */}
+            <button className='p-6 items-center text-left rounded-md border-2 border-gray-300 hover:border-blue-600 hover:border-2' onClick={()=>setUserInfo({...userInfo, step: userInfo.step + 1, workSpaceType: "team"})}>
+              <img className='w-8 h-8' src={Team} />
+              <div className='pt-4'>
+                <h3 className='font-semibold py-2'>With my Team</h3>
+                <p className='text-xs font-thin leading-4'>Wikis, docs, tasks & projects, all in one place.</p>
+              </div>
+            </button>
           </div>
         </form>
         <div className="w-full md:w-full mb-6">
