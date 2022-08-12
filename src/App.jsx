@@ -5,8 +5,8 @@ function App() {
 
   return (
     <>
-      {/* <Hotel/> */}
-      <Onboarding/>
+      <Hotel/>
+      {/* <Onboarding/> */}
     </>
   )
 }
