@@ -12,7 +12,7 @@ function hotel() {
       image: 'https://images.unsplash.com/photo-1516099624722-bbd32783b402?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
       label: 'Wooden hut',
       description: 'Ut mollis varius elit at convallis. Nam semper lacinia risus, eget vestibulum ipsum convallis eu. Ut eget blandit erat',
-      capacity: 5,
+      capacity: 6,
     },{
       image: 'https://images.unsplash.com/photo-1610984881396-bd0ff7da29d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
       label: 'Nippa hut',
@@ -22,7 +22,7 @@ function hotel() {
       image: 'https://images.unsplash.com/photo-1564898148101-82f74d4df7f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
       label: 'Rounded hut',
       description: 'Ut mollis varius elit at convallis. Nam semper lacinia risus, eget vestibulum ipsum convallis eu. Ut eget blandit erat',
-      capacity: 5,
+      capacity: 8,
     },
   ]
 
