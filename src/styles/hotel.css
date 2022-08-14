@@ -1,5 +1,5 @@
 .hotel {
-  @apply bg-[#F6F3E9];
+  @apply bg-[#FBF4EE];
 }
 
 .text-cursive {
@@ -16,7 +16,7 @@
 }
 
 .text-cursive-header {
-  @apply text-cursive sm:text-8xl text-6xl text-green-700;
+  @apply text-cursive sm:text-8xl text-6xl text-[#F77A32];
 }
 
 .x-spacing {
@@ -44,25 +44,36 @@
   @apply md:text-5xl text-3xl;
 }
 
+.list-header {
+  @apply text-3xl;
+}
+
+.list-text {
+  @apply text-lg;
+}
+
 .description {
   @apply text-xl;
 }
 
 .button {
-  @apply md:py-4 md:px-16 py-2 px-8 border-2 md:text-base text-sm;
+  @apply md:py-4 md:px-14 py-2 px-6 border-2 md:text-base text-sm;
 }
 
 .button-white {
-  @apply button bg-transparent text-white
+  @apply button bg-transparent text-white hover:bg-white hover:text-black;
 }
 
 .button-green {
   @apply button bg-[#487355] text-white;
 }
 
+.button-orange {
+  @apply button bg-[#F77A32] hover:bg-[#d56f34] text-white;
+}
 
 .hero {
-  @apply w-full h-full min-h-[60rem] flex lg:flex-row flex-col;
+  @apply w-full h-full flex lg:flex-row flex-col min-h-[calc(100vh-5.5rem)];
 }
 
 .hero-left {
@@ -70,7 +81,7 @@
 }
 
 .hero-right {
-  @apply basis-3/5 xr-spacing min-h-[100vh] hidden lg:block
+  @apply basis-3/5 xr-spacing min-h-[calc(100%-5.5rem)] hidden lg:block
   bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')];
 }
 
@@ -87,7 +98,7 @@
 }
 
 .hotel-nav-container {
-  @apply flex xl:px-20 px-2;
+  @apply flex;
 }
 
 .hotel-nav ul {
