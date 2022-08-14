@@ -8,14 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "tailwindcss -i ./src/index.css -o ./dist/output.css",
-    "watch": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch"
+    "watch": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-step-builder": "^3.0.6",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "react-step-builder": "^3.0.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
