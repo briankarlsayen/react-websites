@@ -1,150 +1,162 @@
 .hotel {
-  background-color: #F6F3E9;
-  font-family: Helvetica, Arial, sans-serif
+  @apply bg-[#F6F3E9];
 }
 
+.text-cursive {
+  font-family: 'Inspiration', cursive;
+}
+
+.center {
+  text-align: -webkit-center;
+  justify-content: center;
+}
+
+.bg-img {
+  @apply bg-center bg-no-repeat bg-cover object-fill w-full h-full;
+}
+
+.text-cursive-header {
+  @apply text-cursive sm:text-8xl text-6xl text-green-700;
+}
+
+.x-spacing {
+  @apply md:px-20 px-2;
+}
+
+.xr-spacing {
+  @apply md:pr-20 pr-2;
+}
+
+.xl-spacing {
+  @apply md:pl-20 pl-2;
+}
+
+
+.header {
+  @apply sm:text-7xl text-5xl font-extrabold md:leading-[4.5rem] leading-[4rem];
+}
+
+.header-cursive {
+  @apply text-cursive text-7xl;
+}
+
+.sub-header {
+  @apply md:text-5xl text-3xl;
+}
+
+.description {
+  @apply text-xl;
+}
+
+.button {
+  @apply md:py-4 md:px-16 py-2 px-8 border-2 md:text-base text-sm;
+}
+
+.button-white {
+  @apply button bg-transparent text-white
+}
+
+.button-green {
+  @apply button bg-[#487355] text-white;
+}
+
+
 .hero {
-  display: flex;
-  width: 100%;
-  height: 60rem;
+  @apply w-full h-full min-h-[60rem] flex lg:flex-row flex-col;
 }
 
 .hero-left {
-  flex-basis:calc((2 / 5) * 100%)
+  @apply basis-2/5;
 }
 
 .hero-right {
-  flex-basis:calc((3 / 5) * 100%);
-  padding-right: 5rem;
-  background-image: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  @apply basis-3/5 xr-spacing min-h-[100vh] hidden lg:block
+  bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')];
 }
 
 .hotel-nav {
-  padding-left: 5rem;
-  height: 5.5rem;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px black solid;
+  @apply xl-spacing h-[5.5rem] items-center flex justify-between border-b-2;
 }
 
-.hotel-nav span {
-  flex: 1;
+.hotel-nav-logo {
+  @apply justify-center text-cursive;
+}
+
+.hotel-nav-logo span {
+  @apply text-2xl font-bold;
+}
+
+.hotel-nav-container {
+  @apply flex xl:px-20 px-2;
 }
 
 .hotel-nav ul {
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-around;
-}
-
-.hotel-nav ul li {
-  padding: .25rem;
+  @apply flex flex-grow justify-between w-[20rem];
 }
 
 .hero-left-text {
-  height: 100%;
-  padding-left: 5rem;
+  @apply h-full xl-spacing;
 }
 
 .tagline-container {
-  padding-top: 15rem;
-}
-
-.tagline-container h2 {
-  font-size: 4rem;
-  line-height: 75px;
-}
-
-.hero-left-text p {
-  font-size: 1.25rem;
-  padding-top: 1rem;
+  @apply py-60 ;
 }
 
 .hero-cursive {
-  font-family: 'Inspiration', cursive;
-  font-size: 4rem;
-}
-
-.hero-right button {
-  float: right;
-  margin-top: 2rem;
-  background-color: transparent;
-  border: 1px white solid;
-  color: white;
-  padding: .75rem;
-  cursor: pointer;
-}
-
-.hero-right button:hover {
-  background-color: #F6F3E9;
-  color: black;
-  border: 1px black solid;
+  @apply text-cursive text-8xl text-green-700;
 }
 
 .story-text {
-  display: flex;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  align-items: center;
-  height: 100%;
-  height: 8rem;
+  @apply hidden lg:flex border-2 items-center;
 }
 
 .story-text-left {
-  flex-basis:calc((2 / 5) * 100%)
-}
-
-.story-text-left h2 {
-  padding: 0 5rem;
-  
+  @apply basis-2/5 py-20 border-r-2 pl-20;
 }
 
 .story-text-right {
-  flex-basis:calc((3 / 5) * 100%);
-  padding: 0 5rem;
+  @apply basis-3/5 pl-20 py-20 pr-20;
 }
 
 .story-text-border {
-  border-right: 1px solid black;
-  height: 100%;
+  @apply border-r-2 h-full;
 }
 
 .story-img-container {
-  height: 60rem;
-  padding: 5rem;
+  @apply h-[60rem] pt-20 x-spacing;
 }
 
 .story-img {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  object-fit: fill;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  @apply bg-img
+  bg-[url("https://images.unsplash.com/photo-1529316275402-0462fcc4abd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80")];
 }
 
 .info {
-  padding: 5rem 28rem;
+  @apply py-20;
+}
+
+.info-container {
+  @apply xl:px-[28rem] pb-20 x-spacing;
 }
 
 .info-text {
-  text-align: center;
+  @apply text-center
 }
 
-.subtitle {
-  font-size: 2rem;
-  line-height: 2rem;
-  font-weight: 400;
+.wellness {
+  @apply bg-img
+  bg-[url('https://images.unsplash.com/photo-1635842254792-d2389c390607?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80')];
 }
 
-.info-text button {
-  margin-top: 2rem;
-  padding: .75rem;
-  background-color: #487355;
-  color: white;
-  border: none;
-  cursor: pointer;
+.testimonial-img {
+  @apply bg-img
+  bg-[url('https://images.unsplash.com/photo-1615039666131-964929ad0f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')];
 }
 
+.footer-bar ul li {
+  @apply md:p-6 py-6 px-2;
+}
+
+.card {
+  @apply md:max-w-sm w-full
+}
