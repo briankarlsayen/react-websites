@@ -1,6 +1,6 @@
 {
   "homepage": "http://briankarlsayen.github.io/react-websites",
-  "name": "react-layouts",
+  "name": "react-websites",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy":"npm run build && git add dist -f && git commit -m'hosting'  && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "react": "^18.2.0",
