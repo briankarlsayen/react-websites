@@ -8,11 +8,12 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy":"npm run build && git add dist -f && git commit -m'hosting'  && git subtree push --prefix dist origin gh-pages"
+    "deploy": "npm run build && git add dist -f && git commit -m'hosting'  && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
     "react-step-builder": "^3.0.6"
   },
   "devDependencies": {
