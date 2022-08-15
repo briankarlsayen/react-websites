@@ -102,7 +102,11 @@
 }
 
 .hotel-nav ul {
-  @apply flex flex-grow justify-between w-[20rem];
+  @apply flex flex-grow justify-between md:w-[20rem];
+}
+
+.hotel-nav ul li {
+  @apply md:px-6 px-2
 }
 
 .hero-left-text {
@@ -110,7 +114,7 @@
 }
 
 .tagline-container {
-  @apply py-60 ;
+  @apply md:py-60 py-32;
 }
 
 .hero-cursive {

@@ -35,9 +35,9 @@ function hotel() {
         <div className='flex items-center justify-end'>
           <div className='hotel-nav-container'>
             <ul>
-              <li className='px-6'>Rooms</li>
-              <li className='px-6'>Packages</li>
-              <li className='px-6'>Contact</li>
+              <li>Rooms</li>
+              <li>Packages</li>
+              <li>Contact</li>
             </ul>
           </div>
           <button className='button-orange md:block hidden'>BOOK NOW</button>
