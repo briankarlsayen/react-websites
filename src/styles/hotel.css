@@ -11,6 +11,26 @@
   justify-content: center;
 }
 
+.text-underline {
+  cursor: pointer;
+  width: fit-content;
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(to right, #f89c6a, #F77A32);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .2s ease-in-out;
+}
+
+.text-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, #F2C)
+}
+
+.text-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
 .bg-img {
   @apply bg-center bg-no-repeat bg-cover object-fill w-full h-full;
 }
@@ -49,7 +69,7 @@
 }
 
 .list-text {
-  @apply text-lg;
+  @apply text-lg cursor-pointer hover:text-gray-200 w-fit;
 }
 
 .description {
@@ -69,7 +89,7 @@
 }
 
 .button-orange {
-  @apply button bg-[#F77A32] hover:bg-[#d56f34] text-white;
+  @apply button bg-[#F77A32] hover:bg-[#d56f34] text-white border-[#F77A32];
 }
 
 .hero {
@@ -106,7 +126,7 @@
 }
 
 .hotel-nav ul li {
-  @apply md:px-6 px-2
+  @apply md:mx-6 mx-2 cursor-pointer
 }
 
 .hero-left-text {

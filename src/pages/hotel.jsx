@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../styles/hotel.css'
 function hotel() {
+  const activitiesRef = useRef(null)
+  const roomsRef = useRef(null)
+  const contactRef = useRef(null)
+  const executeScroll = (ref) => {
+    ref.current.scrollIntoView()
+  }
+
   const rooms = [
     {
       image: 'https://images.unsplash.com/photo-1624062166102-b7297f833602?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
@@ -35,9 +42,9 @@ function hotel() {
         <div className='flex items-center justify-end'>
           <div className='hotel-nav-container'>
             <ul>
-              <li>Rooms</li>
-              <li>Packages</li>
-              <li>Contact</li>
+              <li className='text-underline' onClick={()=>executeScroll(roomsRef)}>Rooms</li>
+              <li className='text-underline' onClick={()=>executeScroll(activitiesRef)}>Activities</li>
+              <li className='text-underline' onClick={()=>executeScroll(contactRef)}>Contact</li>
             </ul>
           </div>
           <button className='button-orange md:block hidden'>BOOK NOW</button>
@@ -61,7 +68,7 @@ function hotel() {
         <div className="hero-right">
         </div>
       </section>
-      <section id="rooms" className='lg:flex-row x-spacing border-t-2 border'>
+      <section id="rooms" ref={roomsRef} className='lg:flex-row x-spacing border-t-2 border'>
         <div className='py-20 md:flex block items-center '>
           <div className='basis-2/5 md:pb-0 pb-10'>
             <h1 className='text-cursive-header'>Relaxing</h1>
@@ -78,7 +85,7 @@ function hotel() {
           }
         </div>
       </section>
-      <section className='w-full relative z-[1]'>
+      <section id="activities" ref={activitiesRef} className='w-full relative z-[1]'>
         <div className='h-full w-full wellness flex justify-center'>
           <div className='bg-transparent text-center py-40 text-white max-w-[65rem]'>
             <h1 className='header p-12'>Nature & Activities</h1>
@@ -114,9 +121,9 @@ function hotel() {
           </div>
         </div>
       </section>
-      <section id="footer" className='w-full relative z-[1]'>
+      <section id="footer" ref={contactRef} className='w-full relative z-[1]'>
         <div className='h-full w-full flex wellness x-spacing'>
-          <div className='bg-transparent text-center py-10 text-white flex justify-between w-full md:flex-row flex-col'>
+          <div className='bg-transparent text-center py-10 text-white flex justify-between w-full lg:flex-row flex-col'>
             <div className='text-left flex-1 py-8'>
               <h1 className='sub-header'>Viction Beach</h1>
               <h1 className='sub-header'>Resort</h1>
@@ -146,7 +153,7 @@ function hotel() {
                 <h3 className='list-header'>News Letter</h3>
                 <h2 className='list-text'>Subscribe to receive our latest news and information</h2>
                 <div className='flex justify-space bg-white p-4 mt-4'>
-                  <input className='p-2 flex-1' placeholder='Your Email' />
+                  <input className='p-2 flex-1 outline-none text-black' type="email" placeholder='Your Email' required />
                   <button className='button-orange text-white'>SUBMIT</button>
                 </div>
               </div>
