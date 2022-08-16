@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import '../styles/hotel.css'
 function hotel() {
   const activitiesRef = useRef(null)
@@ -50,7 +50,7 @@ function hotel() {
           <button className='button-orange md:block hidden'>BOOK NOW</button>
         </div>
       </nav>
-      <section className="hero">
+      <section className="hero scroll-smooth">
         <div className="hero-left">
           <div className="hero-left-text">
             <div className="tagline-container">
