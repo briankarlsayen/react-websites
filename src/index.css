@@ -32,3 +32,18 @@ ul {
   list-style: none;
 }
 
+::-webkit-scrollbar {
+  width: .5em;
+  height: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background: #FBF4EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F77A32;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f36e21;
+}
